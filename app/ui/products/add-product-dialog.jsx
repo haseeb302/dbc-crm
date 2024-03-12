@@ -7,59 +7,40 @@ import {
   DialogTrigger,
 } from "@/app/ui/components/ui/dialog";
 import { Button } from "@/app/ui/components/ui/button";
-import { Label } from "@radix-ui/react-label";
 import { Input } from "../components/ui/input";
+import { Label } from "@radix-ui/react-label";
 
-export default function AddContactDialog() {
+export default function AddProductDialog() {
   return (
-    // <Dialog>
-    //   <DialogTrigger asChild>
-    //     <Button>Add Contact</Button>
-    //   </DialogTrigger>
-    //   <DialogContent>
-    //     <DialogHeader>
-    //       <DialogTitle>Are you absolutely sure?</DialogTitle>
-    //       <DialogDescription>
-    //         This action cannot be undone. This will permanently delete your
-    //         account and remove your data from our servers.
-    //       </DialogDescription>
-    //     </DialogHeader>
-    //   </DialogContent>
-    // </Dialog>
-
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Add Contact</Button>
+        <Button>Add Product</Button>
       </DialogTrigger>
       <DialogContent className=" h-full">
         <DialogHeader>
-          <DialogTitle className="text-3xl">Add New Contact</DialogTitle>
+          <DialogTitle className="text-3xl">Add New Product</DialogTitle>
         </DialogHeader>
         <hr />
         <div className="pl-4 space-y-3 overflow-scroll">
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="name">Connected Company</Label>
+            <Label htmlFor="name">Case Barcode</Label>
             <Input type="text" id="name" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="address">First Name</Label>
+            <Label htmlFor="address">Product Name</Label>
             <Input type="text" id="address" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="postcode">Last Name</Label>
+            <Label htmlFor="postcode">Product Barcode</Label>
             <Input type="text" id="postcode" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="wda">Email</Label>
+            <Label htmlFor="wda">HS Code</Label>
             <Input type="text" id="wda" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="gdp">Phone Number</Label>
+            <Label htmlFor="gdp">Regular Price</Label>
             <Input type="text" id="gdp" />
-          </div>
-          <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="vat">Contact Type</Label>
-            <Input type="text" id="vat" />
           </div>
         </div>
       </DialogContent>
