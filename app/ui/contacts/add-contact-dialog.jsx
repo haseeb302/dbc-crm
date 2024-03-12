@@ -38,28 +38,28 @@ export default function AddContactDialog() {
         <hr />
         <div className="pl-4 space-y-3 overflow-scroll">
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="name">Connected Company</Label>
-            <Input type="text" id="name" />
+            <Label htmlFor="connectedCompany">Connected Company</Label>
+            <Input type="text" id="connectedCompany" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="address">First Name</Label>
-            <Input type="text" id="address" />
+            <Label htmlFor="firstName">First Name</Label>
+            <Input type="text" id="firstName" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="postcode">Last Name</Label>
-            <Input type="text" id="postcode" />
+            <Label htmlFor="lastName">Last Name</Label>
+            <Input type="text" id="lastName" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="wda">Email</Label>
-            <Input type="text" id="wda" />
+            <Label htmlFor="email">Email</Label>
+            <Input type="text" id="email" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="gdp">Phone Number</Label>
-            <Input type="text" id="gdp" />
+            <Label htmlFor="phoneNumber">Phone Number</Label>
+            <Input type="text" id="phoneNumber" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="vat">Contact Type</Label>
-            <Input type="text" id="vat" />
+            <Label htmlFor="contactType">Contact Type</Label>
+            <Input type="text" id="contactType" />
           </div>
         </div>
       </DialogContent>

@@ -23,32 +23,32 @@ export default function AddOfferDialog() {
         <hr />
         <div className="pl-4 space-y-3 overflow-scroll">
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="name">Case Barcode</Label>
-            <Input type="text" id="name" />
+            <Label htmlFor="caseBarcode">Case Barcode</Label>
+            <Input type="text" id="caseBarcode" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="address">Supplier Name</Label>
-            <Input type="text" id="address" />
+            <Label htmlFor="supplierName">Supplier Name</Label>
+            <Input type="text" id="supplierName" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="price">Price</Label>
-            <Input type="text" id="price" />
+            <Label htmlFor="offerPrice">Price</Label>
+            <Input type="text" id="offerPrice" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="wda">Minimum Order</Label>
-            <Input type="text" id="wda" />
+            <Label htmlFor="minimumOrder">Minimum Order</Label>
+            <Input type="text" id="minimumOrder" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="gdp">Offer Date</Label>
-            <Input type="date" id="gdp" />
+            <Label htmlFor="offerDate">Offer Date</Label>
+            <Input type="date" id="offerDate" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="gdp">Expiration Date</Label>
-            <Input type="date" id="gdp" />
+            <Label htmlFor="expirationDate">Expiration Date</Label>
+            <Input type="date" id="expirationDate" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="gdp">Stop Offering Date</Label>
-            <Input type="date" id="gdp" />
+            <Label htmlFor="stopOfferingDate">Stop Offering Date</Label>
+            <Input type="date" id="stopOfferingDate" />
           </div>
         </div>
       </DialogContent>
