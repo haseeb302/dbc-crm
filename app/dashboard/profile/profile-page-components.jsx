@@ -6,7 +6,7 @@ import { Input } from "@/app/ui/components/ui/input";
 
 export default function ProfilePage() {
   return (
-    <div className="pl-4 space-y-3 overflow-scroll">
+    <div className="pl-4 space-y-3 overflow-hidden">
       <h1 className="text-lg">
         <b>Account Settings</b>
       </h1>
