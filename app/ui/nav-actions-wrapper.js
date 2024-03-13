@@ -7,6 +7,7 @@ import AddCompanyDialog from "./dashboard/add-company-dialog";
 import AddContactDialog from "./contacts/add-contact-dialog";
 import AddProductDialog from "./products/add-product-dialog";
 import AddOfferDialog from "./offers/add-offer-dialog";
+import AddOpportunitytDialog from "./opportunities/add-opportunity-dialog";
 
 export default function NavActionWrapper() {
   const pathname = usePathname();
@@ -66,7 +67,8 @@ export default function NavActionWrapper() {
             placeholder="Search opportunities"
             className="md:w-[100px] lg:w-[300px]"
           />
-          <Button>Add Opportunity</Button>
+          {/* <Button>Add Opportunity</Button> */}
+          <AddOpportunitytDialog />
         </>
       );
     default:
