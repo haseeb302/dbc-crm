@@ -6,6 +6,7 @@ import {
 } from "@/app/ui/components/ui/avatar";
 
 import NavActionWrapper from "@/app/ui/nav-actions-wrapper";
+import Link from "next/link";
 
 export default function Layout({ children }) {
   return (
@@ -19,10 +20,13 @@ export default function Layout({ children }) {
             <div className="flex items-center space-x-2">
               <NavActionWrapper />
             </div>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+            <Link href={"/dashboard/profile"}>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </Link>
           </div>
         </div>
         {children}
