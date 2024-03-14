@@ -1,1 +1,1 @@
-completed profile page UI and click function on avatar.
+completed profile page UI and OnClick function on right top corner avatar.
