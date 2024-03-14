@@ -1,0 +1,1 @@
+completed profile page UI and OnClick function on right top corner avatar.
