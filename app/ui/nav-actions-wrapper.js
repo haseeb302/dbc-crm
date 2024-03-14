@@ -5,6 +5,9 @@ import { Button } from "@/app/ui/components/ui/button";
 import { usePathname } from "next/navigation";
 import AddCompanyDialog from "./dashboard/add-company-dialog";
 import AddContactDialog from "./contacts/add-contact-dialog";
+import AddProductDialog from "./products/add-product-dialog";
+import AddOfferDialog from "./offers/add-offers-dialog";
+import AddOpportunityDialog from "./opportunities/add-opportunity-dialog";
 
 export default function NavActionWrapper() {
   const pathname = usePathname();
@@ -40,7 +43,7 @@ export default function NavActionWrapper() {
             placeholder="Search products"
             className="md:w-[100px] lg:w-[300px]"
           />
-          <Button>Add Products</Button>
+          <AddProductDialog />
         </>
       );
     case "/dashboard/offers":
@@ -51,7 +54,7 @@ export default function NavActionWrapper() {
             placeholder="Search offers"
             className="md:w-[100px] lg:w-[300px]"
           />
-          <Button>Add Offer</Button>
+          <AddOfferDialog />
         </>
       );
     case "/dashboard/opportunities":
@@ -62,7 +65,7 @@ export default function NavActionWrapper() {
             placeholder="Search opportunities"
             className="md:w-[100px] lg:w-[300px]"
           />
-          <Button>Add Opportunity</Button>
+          <AddOpportunityDialog />
         </>
       );
     default:
