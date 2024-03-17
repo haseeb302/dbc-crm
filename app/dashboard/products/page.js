@@ -1,9 +1,10 @@
+import { fetchProducts } from "@/app/lib/api/products";
 import { columns } from "./columns";
 import { DataTable } from "@/app/ui/data-table";
 
-export const products = [];
-
 export default async function Page() {
+  const { recordset: products } = await fetchProducts();
+
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={columns} data={products} />

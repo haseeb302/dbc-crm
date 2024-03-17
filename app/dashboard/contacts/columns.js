@@ -2,27 +2,27 @@
 
 export const columns = [
   {
-    accessorKey: "connected_company",
+    accessorKey: "CompanyID",
     header: "Connected Company",
   },
   {
-    accessorKey: "first_name",
+    accessorKey: "FirstName",
     header: "First Name",
   },
   {
-    accessorKey: "last_name",
+    accessorKey: "LastName",
     header: "Last Name",
   },
   {
-    accessorKey: "email",
+    accessorKey: "Email",
     header: "Email",
   },
   {
-    accessorKey: "phone_number",
+    accessorKey: "PhoneNumber",
     header: "Phone Number",
   },
   {
-    accessorKey: "contact_type",
+    accessorKey: "ContactType",
     header: "Contact Type",
   },
 ];

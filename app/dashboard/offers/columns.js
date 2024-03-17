@@ -2,31 +2,31 @@
 
 export const columns = [
   {
-    accessorKey: "case_barcode",
+    accessorKey: "CaseBarcode",
     header: "Case Barcode",
   },
   {
-    accessorKey: "supplier_name",
+    accessorKey: "SupplierName",
     header: "Supplier Name",
   },
   {
-    accessorKey: "price",
+    accessorKey: "Price",
     header: "Price",
   },
   {
-    accessorKey: "min_order",
+    accessorKey: "MinimumOrderQty",
     header: "Minimum Order",
   },
   {
-    accessorKey: "offer_date",
+    accessorKey: "OfferDate",
     header: "Offer Date",
   },
   {
-    accessorKey: "expiration_date",
+    accessorKey: "ExpirationDate",
     header: "Expiration Date",
   },
   {
-    accessorKey: "stop_offer_date",
+    accessorKey: "StopOfferingDate",
     header: "Stop Offering Date",
   },
 ];

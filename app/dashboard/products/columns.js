@@ -2,23 +2,23 @@
 
 export const columns = [
   {
-    accessorKey: "case_barcode",
+    accessorKey: "CaseBarcode",
     header: "Case Barcode",
   },
   {
-    accessorKey: "product_name",
+    accessorKey: "ProductName",
     header: "Product Name",
   },
   {
-    accessorKey: "product_barcode",
+    accessorKey: "ProductBarcode",
     header: "Product Barcode",
   },
   {
-    accessorKey: "hscode",
+    accessorKey: "HSCODE",
     header: "HS Code",
   },
   {
-    accessorKey: "regular_price",
+    accessorKey: "RegularPrice",
     header: "Regular Price",
   },
 ];

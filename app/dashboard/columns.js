@@ -2,31 +2,31 @@
 
 export const columns = [
   {
-    accessorKey: "name",
+    accessorKey: "CompanyName",
     header: "Name",
   },
   {
-    accessorKey: "address",
+    accessorKey: "StreetAddress",
     header: "Address",
   },
   {
-    accessorKey: "postal",
+    accessorKey: "PostalCode",
     header: "Post Code",
   },
   {
-    accessorKey: "wda",
+    accessorKey: "WdaNumber",
     header: "WDA Number",
   },
   {
-    accessorKey: "gdpcert",
+    accessorKey: "GdpCertificate",
     header: "GDP Certificate",
   },
   {
-    accessorKey: "vat",
+    accessorKey: "VatNumber",
     header: "VAT Number",
   },
   {
-    accessorKey: "incorp_number",
+    accessorKey: "IncorporationNumber",
     header: "Incorporation Number",
   },
 ];
