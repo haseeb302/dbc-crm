@@ -21,7 +21,7 @@ export default function AddContactDialog() {
       <DialogTrigger asChild>
         <Button>Add Contact</Button>
       </DialogTrigger>
-      <DialogContent className=" h-full">
+      <DialogContent className="">
         <DialogHeader>
           <DialogTitle className="text-3xl">Add New Contact</DialogTitle>
         </DialogHeader>

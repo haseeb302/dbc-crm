@@ -1,7 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -9,48 +11,63 @@ import {
 import { Button } from "@/app/ui/components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "@radix-ui/react-label";
+import { createOffers } from "@/app/lib/api/offers";
 
 export default function AddOfferDialog() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>Add Offer</Button>
       </DialogTrigger>
-      <DialogContent className=" h-full">
+      <DialogContent className="h-full">
         <DialogHeader>
           <DialogTitle className="text-3xl">Add New Offer</DialogTitle>
         </DialogHeader>
         <hr />
-        <div className="pl-4 space-y-3 overflow-scroll">
+        <form action={createOffers} className="pl-4 space-y-3 overflow-scroll">
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <Label htmlFor="company">Company</Label>
+            <Input type="text" id="company" name="CompanyID" />
+          </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="offer-case-barcode">Case Barcode</Label>
-            <Input type="text" id="offer-case-barcode" />
+            <Input type="text" id="offer-case-barcode" name="CaseBarcode" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="supplier-name">Supplier Name</Label>
-            <Input type="text" id="supplier-name" />
+            <Input type="text" id="supplier-name" name="SupplierName" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="offer-price">Price</Label>
-            <Input type="text" id="offer-price" />
+            <Input type="text" id="offer-price" name="Price" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="minimum-order">Minimum Order</Label>
-            <Input type="text" id="minimum-order" />
+            <Input type="text" id="minimum-order" name="MinimumOrderQuantity" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="offer-date">Offer Date</Label>
-            <Input type="text" id="offer-date" />
+            <Input type="date" id="offer-date" name="OfferDate" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="expiration-date">Expiration Date</Label>
-            <Input type="text" id="expiration-date" />
+            <Input type="date" id="expiration-date" name="ExpirationDate" />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="stopOffering-date">Stop Offering Date</Label>
-            <Input type="text" id="stopOffering-date" />
+            <Input type="date" id="stopOffering-date" name="StopOfferingDate" />
           </div>
-        </div>
+          <Button asChild>
+            <Input
+              type="submit"
+              value="Save"
+              className="cursor-pointer"
+              onClick={() => setOpen(false)}
+            />
+          </Button>
+        </form>
       </DialogContent>
     </Dialog>
   );
