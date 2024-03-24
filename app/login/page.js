@@ -3,6 +3,7 @@ import { Label } from "@/app/ui/components/ui/label";
 import { Button } from "@/app/ui/components/ui/button";
 import "@/app/globals.css";
 
+// this is login page
 export default function page() {
   return (
     <section class="bg-gray-50 dark:bg-gray-900">
