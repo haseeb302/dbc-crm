@@ -25,13 +25,35 @@ export async function createCompany(formData) {
   redirect("/dashboard");
 }
 
-export async function fetchCompanies() {
+const ITEMS_PER_PAGE = 10;
+export async function filteredCompanies(query, page) {
+  try {
+    const offset = (page - 1) * ITEMS_PER_PAGE;
+    let pool = await sql.connect(sqlConfig);
+    let result = await pool.request().query(`SELECT * FROM Company 
+      WHERE CompanyName LIKE '%${query}%' ORDER BY CompanyID DESC OFFSET ${offset} ROWS FETCH NEXT ${ITEMS_PER_PAGE} ROWS ONLY`);
+
+    const { recordset: companies } = result;
+    return companies;
+  } catch (e) {
+    console.log(e);
+  } finally {
+    // close();
+  }
+  revalidatePath("/dashboard");
+  redirect("/dashboard");
+}
+
+export async function fetchCompaniesPages(query) {
   try {
     let pool = await sql.connect(sqlConfig);
-    let result = await pool
-      .request()
-      .query(`SELECT TOP 10 * FROM Company ORDER BY CompanyID DESC`);
-    return result;
+    let result = await pool.request()
+      .query(`SELECT COUNT(*) AS total FROM Company 
+      WHERE CompanyName LIKE '%${query}%'`);
+    const totalPages = Math.ceil(
+      Number(result.recordset[0].total) / ITEMS_PER_PAGE
+    );
+    return totalPages;
   } catch (e) {
     console.log(e);
   } finally {

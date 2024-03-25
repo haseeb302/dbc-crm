@@ -8,6 +8,7 @@ import AddContactDialog from "./contacts/add-contact-dialog";
 import AddProductDialog from "./products/add-product-dialog";
 import AddOfferDialog from "./offers/add-offers-dialog";
 import AddOpportunityDialog from "./opportunities/add-opportunity-dialog";
+import Search from "./Search";
 
 export default function NavActionWrapper() {
   const pathname = usePathname();
@@ -16,55 +17,35 @@ export default function NavActionWrapper() {
     case "/dashboard":
       return (
         <>
-          <Input
-            type="search"
-            placeholder="Search companies"
-            className="md:w-[100px] lg:w-[300px]"
-          />
+          <Search placeholder="Search companies" />
           <AddCompanyDialog />
         </>
       );
     case "/dashboard/contacts":
       return (
         <>
-          <Input
-            type="search"
-            placeholder="Search contact"
-            className="md:w-[100px] lg:w-[300px]"
-          />
+          <Search placeholder="Search contacts" />
           <AddContactDialog />
         </>
       );
     case "/dashboard/products":
       return (
         <>
-          <Input
-            type="search"
-            placeholder="Search products"
-            className="md:w-[100px] lg:w-[300px]"
-          />
+          <Search placeholder="Search products" />
           <AddProductDialog />
         </>
       );
     case "/dashboard/offers":
       return (
         <>
-          <Input
-            type="search"
-            placeholder="Search offers"
-            className="md:w-[100px] lg:w-[300px]"
-          />
+          <Search placeholder="Search Offer" />
           <AddOfferDialog />
         </>
       );
     case "/dashboard/opportunities":
       return (
         <>
-          <Input
-            type="search"
-            placeholder="Search opportunities"
-            className="md:w-[100px] lg:w-[300px]"
-          />
+          <Search placeholder="Search opportunities" />
           <AddOpportunityDialog />
         </>
       );

@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 export async function createContact(formData) {
+  console.log(formData);
+  return;
   try {
     let pool = await sql.connect(sqlConfig);
     let request = pool.request();
@@ -26,17 +28,43 @@ export async function createContact(formData) {
   redirect("/dashboard/contacts");
 }
 
-export async function fetchContacts() {
+const ITEMS_PER_PAGE = 10;
+export async function filteredContacts(query, page) {
   try {
+    const offset = (page - 1) * ITEMS_PER_PAGE;
     let pool = await sql.connect(sqlConfig);
-    let result = await pool
-      .request()
-      .query(`SELECT TOP 10 * FROM Contact ORDER BY ContactID DESC`);
+    let result = await pool.request().query(`SELECT * FROM Contact 
+      WHERE FirstName LIKE '%${query}%' OR
+      LastName LIKE '%${query}%' OR
+      Email LIKE '%${query}%' 
+      ORDER BY CompanyID DESC OFFSET ${offset} ROWS FETCH NEXT ${ITEMS_PER_PAGE} ROWS ONLY`);
 
-    return result;
+    const { recordset: contacts } = result;
+    return contacts;
   } catch (e) {
     console.log(e);
   } finally {
+    // close();
+  }
+  revalidatePath("/dashboard/contacts");
+  redirect("/dashboard/contacts");
+}
+
+export async function fetchContactsPages(query) {
+  try {
+    let pool = await sql.connect(sqlConfig);
+    let result = await pool.request()
+      .query(`SELECT COUNT(*) AS total FROM Contact WHERE FirstName LIKE '%${query}%' OR
+      LastName LIKE '%${query}%' OR
+      Email LIKE '%${query}%'`);
+    const totalPages = Math.ceil(
+      Number(result.recordset[0].total) / ITEMS_PER_PAGE
+    );
+    return totalPages;
+  } catch (e) {
+    console.log(e);
+  } finally {
+    // close();
   }
   revalidatePath("/dashboard/contacts");
   redirect("/dashboard/contacts");
