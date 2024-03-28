@@ -26,15 +26,42 @@ export async function createOpportunity(formData) {
   redirect("/dashboard/opportunities");
 }
 
-export async function fetchOpportunity() {
+const ITEMS_PER_PAGE = 10;
+export async function filteredOpportunities(query, page) {
   try {
+    const offset = (page - 1) * ITEMS_PER_PAGE;
     let pool = await sql.connect(sqlConfig);
-    let result = await pool.request().query(`SELECT TOP 10 * FROM Opportunity`);
+    let result = await pool.request().query(`SELECT * FROM Opportunity 
+      WHERE CaseBarcode LIKE '%${query}%'      
+      ORDER BY RequestID DESC OFFSET ${offset} ROWS FETCH NEXT ${ITEMS_PER_PAGE} ROWS ONLY`);
 
-    return result;
+    const { recordset: opportunities } = result;
+    return opportunities;
   } catch (e) {
     console.log(e);
   } finally {
+    // close();
+  }
+  revalidatePath("/dashboard/opportunities");
+  redirect("/dashboard/opportunities");
+}
+
+export async function fetchOpportunitiesPages(query) {
+  try {
+    let pool = await sql.connect(sqlConfig);
+    let result = await pool
+      .request()
+      .query(
+        `SELECT COUNT(*) AS total FROM Opportunity WHERE CaseBarcode LIKE '%${query}%'`
+      );
+    const totalPages = Math.ceil(
+      Number(result.recordset[0].total) / ITEMS_PER_PAGE
+    );
+    return totalPages;
+  } catch (e) {
+    console.log(e);
+  } finally {
+    // close();
   }
   revalidatePath("/dashboard/opportunities");
   redirect("/dashboard/opportunities");

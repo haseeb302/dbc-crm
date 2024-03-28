@@ -27,15 +27,42 @@ export async function createOffers(formData) {
   redirect("/dashboard/offers");
 }
 
-export async function fetchOffers() {
+const ITEMS_PER_PAGE = 10;
+export async function filteredOffers(query, page) {
   try {
+    const offset = (page - 1) * ITEMS_PER_PAGE;
     let pool = await sql.connect(sqlConfig);
-    let result = await pool.request().query(`SELECT TOP 10 * FROM Offer`);
+    let result = await pool.request().query(`SELECT * FROM Offer 
+      WHERE CaseBarcode LIKE '%${query}%'      
+      ORDER BY OfferID DESC OFFSET ${offset} ROWS FETCH NEXT ${ITEMS_PER_PAGE} ROWS ONLY`);
 
-    return result;
+    const { recordset: offers } = result;
+    return offers;
   } catch (e) {
     console.log(e);
   } finally {
+    // close();
+  }
+  revalidatePath("/dashboard/offers");
+  redirect("/dashboard/offers");
+}
+
+export async function fetchOffersPages(query) {
+  try {
+    let pool = await sql.connect(sqlConfig);
+    let result = await pool
+      .request()
+      .query(
+        `SELECT COUNT(*) AS total FROM Offer WHERE CaseBarcode LIKE '%${query}%'`
+      );
+    const totalPages = Math.ceil(
+      Number(result.recordset[0].total) / ITEMS_PER_PAGE
+    );
+    return totalPages;
+  } catch (e) {
+    console.log(e);
+  } finally {
+    // close();
   }
   revalidatePath("/dashboard/offers");
   redirect("/dashboard/offers");
