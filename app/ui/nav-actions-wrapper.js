@@ -1,7 +1,6 @@
 "use client";
 
-import { Input } from "@/app/ui/components/ui/input";
-import { Button } from "@/app/ui/components/ui/button";
+import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 import AddCompanyDialog from "./dashboard/add-company-dialog";
 import AddContactDialog from "./contacts/add-contact-dialog";
@@ -17,35 +16,45 @@ export default function NavActionWrapper() {
     case "/dashboard":
       return (
         <>
-          <Search placeholder="Search companies" />
+          <Suspense>
+            <Search placeholder="Search companies" />
+          </Suspense>
           <AddCompanyDialog />
         </>
       );
     case "/dashboard/contacts":
       return (
         <>
-          <Search placeholder="Search contacts" />
+          <Suspense>
+            <Search placeholder="Search contacts" />
+          </Suspense>
           <AddContactDialog />
         </>
       );
     case "/dashboard/products":
       return (
         <>
-          <Search placeholder="Search products" />
+          <Suspense>
+            <Search placeholder="Search products" />
+          </Suspense>
           <AddProductDialog />
         </>
       );
     case "/dashboard/offers":
       return (
         <>
-          <Search placeholder="Search Offer" />
+          <Suspense>
+            <Search placeholder="Search Offer" />
+          </Suspense>
           <AddOfferDialog />
         </>
       );
     case "/dashboard/opportunities":
       return (
         <>
-          <Search placeholder="Search opportunities" />
+          <Suspense>
+            <Search placeholder="Search opportunities" />
+          </Suspense>
           <AddOpportunityDialog />
         </>
       );
